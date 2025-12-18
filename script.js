@@ -14,21 +14,18 @@ const bands = [
   'An Old Dog'
 ];
 
-// function to remove articles
 function stripArticle(name) {
   return name.replace(/^(a |an |the )/i, "").trim();
 }
 
-// sort ignoring a, an, the
-const sortedBands = bands.sort((a, b) => {
+bands.sort((a, b) => {
   if (stripArticle(a) > stripArticle(b)) return 1;
   if (stripArticle(a) < stripArticle(b)) return -1;
   return 0;
 });
 
-// render list
-const ul = document.getElementById("band");
+const ul = document.getElementById("bands");
 
-ul.innerHTML = sortedBands
+ul.innerHTML = bands
   .map(band => `<li>${band}</li>`)
   .join("");
